@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bower',
+1 verbose cli   '-g' ]
+2 info using npm@3.3.12
+3 info using node@v5.5.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData bower
+8 silly fetchNamedPackageData bower
+9 silly mapToRegistry name bower
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/bower
+13 verbose request uri https://registry.npmjs.org/bower
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 15:53:11
+16 verbose request id cda65b33475d85c2
+17 http request GET https://registry.npmjs.org/bower
+18 info retry will retry, error on last attempt: Error: self signed certificate in certificate chain
+19 info attempt registry request try #2 at 15:53:21
+20 http request GET https://registry.npmjs.org/bower
+21 info retry will retry, error on last attempt: Error: self signed certificate in certificate chain
+22 info attempt registry request try #3 at 15:54:21
+23 http request GET https://registry.npmjs.org/bower
+24 silly fetchPackageMetaData Error: self signed certificate in certificate chain
+24 silly fetchPackageMetaData     at Error (native)
+24 silly fetchPackageMetaData     at TLSSocket.<anonymous> (_tls_wrap.js:1057:38)
+24 silly fetchPackageMetaData     at emitNone (events.js:80:13)
+24 silly fetchPackageMetaData     at TLSSocket.emit (events.js:179:7)
+24 silly fetchPackageMetaData     at TLSSocket._init.ssl.onclienthello.ssl.oncertcb.TLSSocket._finishInit (_tls_wrap.js:596:8)
+24 silly fetchPackageMetaData     at TLSWrap.ssl.onclienthello.ssl.oncertcb.ssl.onnewsession.ssl.onhandshakedone (_tls_wrap.js:428:38)
+24 silly fetchPackageMetaData  error for bower { [Error: self signed certificate in certificate chain] code: 'SELF_SIGNED_CERT_IN_CHAIN' }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: self signed certificate in certificate chain
+30 verbose stack     at Error (native)
+30 verbose stack     at TLSSocket.<anonymous> (_tls_wrap.js:1057:38)
+30 verbose stack     at emitNone (events.js:80:13)
+30 verbose stack     at TLSSocket.emit (events.js:179:7)
+30 verbose stack     at TLSSocket._init.ssl.onclienthello.ssl.oncertcb.TLSSocket._finishInit (_tls_wrap.js:596:8)
+30 verbose stack     at TLSWrap.ssl.onclienthello.ssl.oncertcb.ssl.onnewsession.ssl.onhandshakedone (_tls_wrap.js:428:38)
+31 verbose cwd C:\DOCUMENTOS\ESTUDO\Devmedia\Ajax_JQuery
+32 error Windows_NT 6.1.7601
+33 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bower" "-g"
+34 error node v5.5.0
+35 error npm  v3.3.12
+36 error code SELF_SIGNED_CERT_IN_CHAIN
+37 error self signed certificate in certificate chain
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumo Ajax</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#enviar").on('click', function(event) {
+                event.preventDefault();
+                var id = $("#id_nota").val();
+                $("#retorno").html("Valor do input: "+id);
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="http://www.devmedia.com.br/Imagens/2013/logo_new.png" style="width: 260px;">
+    </header>
+    <section>
+        <h1>Consulta de Notas</h1>
+        <form id="formulario" style="margin-bottom: 25px;">
+            <label>Id da nota a ser buscado: </label> <br><br>
+            <input id="id_nota" type="text" name="id" value="" placeholder="vazio para exibir todas">
+            <button id="enviar">ENVIAR</button>
+        </form>
+
+        <hr>
+
+        <p id="retorno"></p> 
+    </section>
+    <div></div>
+</body><div>
+</html>
