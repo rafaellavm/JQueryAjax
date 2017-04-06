@@ -9,17 +9,24 @@
             $('#retorno').html("ID: " + data.Id + "<br>Titulo: " + data.Title +"<br>Conteudo: "+ data.Body+"<br><br>");
         }
 
+        function exibeErroNota(){
+            $('#retorno').html("Ops, algo de errado aconteceu!");
+        }
+
         function cliqueBotao(event){
             event.preventDefault();
             
             //resgatando o valor do input
             var id = $('#id_nota').val();
 
+            console.log('entrou');
+
             jQuery.ajax({
                 type: "GET",
                 dataType: "json",
                 url: "http://devmedianotesapi.azurewebsites.net/api/notes/"+id,
-                success: exibeNota //se for erro naõ faz nada
+                success: exibeNota, //se for erro naõ faz nada
+                error: exibeErroNota
             });
 
         }
