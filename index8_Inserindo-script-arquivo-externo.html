@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumo Ajax</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+</head>
+<body>
+   <header>
+        <img src="http://www.devmedia.com.br/Imagens/2013/logo_new.png" alt="DevMedia - Códigos e Jobs para Programadores" title="DevMedia - Códigos e Jobs para Programadores" style="width: 260px;">
+    </header>
+    <section>
+        <h1>Consulta de Notas</h1>
+        <form id="formulario" style="margin-bottom: 25px;">
+            <label>Id da nota a ser buscado: </label> <br><br>
+            
+            <!--valor a ser inserido -->
+            <input id="id_nota" type="text" name="id" value="" placeholder="vazio para exibir todas">
+            
+            <!--botão para chamar a rotina-->
+            <button id="enviar">ENVIAR</button>
+            <span id="loading"></span>
+        </form>
+
+        <hr>
+        
+        <!--exibição do resultado -->
+        <p id="retorno"></p> 
+    </section>
+</body>
+</html>
