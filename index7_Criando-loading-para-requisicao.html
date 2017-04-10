@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumo Ajax</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        
+        function exibeNota(data){
+            if($.isArray(data)){
+                $('#retorno').empty();
+
+                //value: valor
+                //prepend(): semelhando ao .html() (que substitui), mas o prepend mostra no início do conteúdo, não substituindo o elemento
+                $.each(data, function(index,value){
+                    $('#retorno').prepend("ID: " + value.Id + "<br>Titulo: " + value.Title + "<br>Conteúdo: " + value.Body + "<br><br>");
+                });
+            }
+            else{
+                $('#retorno').html("ID: " + data.Id + "<br>Título: " + data.Title + "<br>Conteudo: " + data.Body + "<br><br>");
+            }
+
+              //limpando o loading
+             $("#loading").empty();
+        }
+
+        function exibeErroNota(){
+            $('#retorno').html("Ops, algo de errado aconteceu!");
+
+            //limpando o loading
+             $("#loading").empty();
+        }
+
+        function aguardaNota(){
+            $('#loading').html("<img style='width: 15px; margin-left: 10px;' src='http://www.devmedia.com.br/cursos/img/loading.gif' alt='loading'>");
+        }
+
+        function cliqueBotao(event){
+            event.preventDefault();
+            
+            //resgatando o valor do input
+            var id = $('#id_nota').val();
+
+            console.log('entrou');
+
+            jQuery.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "http://devmedianotesapi.azurewebsites.net/api/notes/"+id,
+                success: exibeNota, //se for erro naõ faz nada
+                error: exibeErroNota,
+                beforeSend: aguardaNota //status ENQUANTO a aplicação está enviando a aquisição - aqui vai entrar um gif animado de loading
+            });
+
+        }
+
+        $(document).ready(function(){
+            $('#enviar').on('click',cliqueBotao);
+        });
+    </script>
+</head>
+<body>
+   <header>
+        <img src="http://www.devmedia.com.br/Imagens/2013/logo_new.png" alt="DevMedia - Códigos e Jobs para Programadores" title="DevMedia - Códigos e Jobs para Programadores" style="width: 260px;">
+    </header>
+    <section>
+        <h1>Consulta de Notas</h1>
+        <form id="formulario" style="margin-bottom: 25px;">
+            <label>Id da nota a ser buscado: </label> <br><br>
+            
+            <!--valor a ser inserido -->
+            <input id="id_nota" type="text" name="id" value="" placeholder="vazio para exibir todas">
+            
+            <!--botão para chamar a rotina-->
+            <button id="enviar">ENVIAR</button>
+            <span id="loading"></span>
+        </form>
+
+        <hr>
+        
+        <!--exibição do resultado -->
+        <p id="retorno"></p> 
+    </section>
+</body>
+</html>
